@@ -26,27 +26,38 @@ export default class extends MyComponent {
   data: any = {
     cutTexts: []
   };
-  prop = Math.random()
+  prop = Math.random();
   /**
    * 组件属性值有更新时会调用此函数，不需要在 properties 中设置 observer 函数
    */
   onPropUpdate(prop: string, newValue: any, oldValue: any) {
-    console.log(prop)
+    console.log(prop);
     if (prop == "text") {
       let text = newValue as string;
-      let cutTexts = text.split(" ");
+      let cutTexts = text.split(/\b(\w+?)\b/g);
       this.setDataSmart({
-        cutTexts: cutTexts,
+        cutTexts: cutTexts
       });
     }
   }
 
   bindWordTap(e: any) {
     let index = e.currentTarget.dataset.index;
-    this.setDataSmart({
-      select: e.currentTarget.dataset.verse + '' + index
-    });
-    //this.properties.select =  e.currentTarget.dataset.verse * 10 + index;
-    this.triggerEvent("wordSelected", this.data.cutTexts[index], {});
+    let word = this.data.cutTexts[index];
+    if (this.isWord(word)) {
+      this.setDataSmart({
+        select: e.currentTarget.dataset.verse + "" + index
+      });
+      //this.properties.select =  e.currentTarget.dataset.verse * 10 + index;
+      this.triggerEvent("wordSelected", this.data.cutTexts[index], {});
+    }
+  }
+  isWord(str: string) {
+    var reg = /^[A-Za-z]+$/;
+    if (reg.test(str)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
