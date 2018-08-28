@@ -1,4 +1,4 @@
-<wxs module="foo" src="./module1.wxs"></wxs>
+
 <view class="container">
   <view class="section" wx:for="{{bibles}}" wx:key="Verse">
     <view class="title" wx:if="{{item.Title}}">{{item.Title}}</view>
