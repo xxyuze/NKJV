@@ -1,0 +1,46 @@
+.container {
+  padding: 10px 30px;
+}
+
+.section {
+  margin: 10px 0;
+}
+
+.title {
+  font-size: 45px;
+  font-weight: 600;
+  margin: 30px 0 20px 0;
+}
+
+.verse {
+  color: darkred;
+  margin: 0 10px;
+}
+
+.word-card {
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  bottom: 0;
+  padding: 18px;
+  transition: all 0.2s;
+  opacity: 0;
+  .title {
+    display: flex;
+    justify-content: space-between;
+    color: #209e85;
+    font-size: 40px;
+    span {
+      color: #999;
+      font-size: 30px;
+      padding: 0 8px;
+    }
+  }
+  .body {
+    color: #666;
+    margin-bottom: 20px;
+  }
+}
+.show{
+  opacity: 1;
+}

@@ -1,0 +1,18 @@
+<wxs module="foo" src="./module1.wxs"></wxs>
+<view class="container">
+  <view class="section" wx:for="{{bibles}}" wx:key="Verse">
+    <view class="title" wx:if="{{item.Title}}">{{item.Title}}</view>
+    <text class="verse">{{item.Verse}}</text>
+    <textcuter text="{{item.Scripture}}" select.sync="{{selectWordIndex}}" verse="{{item.Verse}}" bind:wordSelected="showDictionary"></textcuter>
+  </view>
+  <div class="word-card {{showCard?'show':''}}">
+    <div class="title">
+      <p class="word">{{wordExplain.content}}
+        <span class="">{{wordExplain.pronunciations}}</span>
+      </p>
+    </div>
+    <div class="body">
+      {{wordExplain.definition}}
+    </div>
+  </div>
+</view>
