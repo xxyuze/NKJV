@@ -7,6 +7,7 @@ import { pagify, MyPage, wxp } from "base/";
 import { _tableService } from "Services/BibleService";
 import { _Translate } from 'Singleton';
 
+const audioContext = wxp.createInnerAudioContext();
 // 把这个 class 转化成 微信的 Page 参数，并且注入全局 store
 @pagify()
 export default class extends MyPage {
@@ -50,11 +51,11 @@ export default class extends MyPage {
         duration:2000
       })
     }
+  }
+  async playWordSound(){
+    let that = this;
 
-    // await wxp.showModal({
-    //   title:word,
-    //   content:result.definition
-    // });
-
+    audioContext.src = (<any>that.data.wordExplain).audio;
+    audioContext.play();
   }
 }

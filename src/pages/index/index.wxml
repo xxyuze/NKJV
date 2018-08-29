@@ -10,6 +10,7 @@
       <p class="word">{{wordExplain.content}}
         <span class="">/{{wordExplain.pronunciation}}/</span>
       </p>
+      <i class="icon-laba" bind:tap="playWordSound"></i>
     </div>
     <div class="body">
       {{wordExplain.definition}}
