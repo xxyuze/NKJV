@@ -31,7 +31,7 @@ export default class extends MyComponent {
    * 组件属性值有更新时会调用此函数，不需要在 properties 中设置 observer 函数
    */
   onPropUpdate(prop: string, newValue: any, oldValue: any) {
-    console.log(prop);
+    //console.log(prop);
     if (prop == "text") {
       let text = newValue as string;
       let cutTexts = text.split(/\b(\w+?)\b/g);

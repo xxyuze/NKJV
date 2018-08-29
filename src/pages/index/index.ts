@@ -43,10 +43,11 @@ export default class extends MyPage {
       })
       console.log(result);
     } catch (error) {
+      console.log(error);
       await wxp.showToast({
-        title:error.errMsg,
-        icon:'error',
-        duration:1000
+        title:error.message,
+        icon:'none',
+        duration:2000
       })
     }
 

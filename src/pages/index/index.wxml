@@ -8,7 +8,7 @@
   <div class="word-card {{showCard?'show':''}}">
     <div class="title">
       <p class="word">{{wordExplain.content}}
-        <span class="">{{wordExplain.pronunciations}}</span>
+        <span class="">{{wordExplain.pronunciation}}</span>
       </p>
     </div>
     <div class="body">
